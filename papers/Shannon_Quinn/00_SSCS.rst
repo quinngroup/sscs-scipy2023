@@ -2,10 +2,13 @@
 :email: spq@uga.edu
 :institution: School of Computer Science, University of Georgia
 :institution: Department of Cellular Biology, University of Georgia
+:orcid: 0000-0002-8916-6335
+:corresponding:
 
 :author: Meekail Zain
 :email: Meekail.Zain@uga.edu
 :institution: School of Computer Science, University of Georgia
+:equal-contributor:
 
 :bibliography: mybib
 
@@ -17,15 +20,19 @@ Self-Supervised Cilia Segmentation
 
 .. class:: abstract
 
-   A short version of the long version that is way too long to be written as a
-   short version anyway.  Still, when considering the facts from first
-   principles, we find that the outcomes of this introspective approach is
-   compatible with the guidelines previously established.
-
-   In such an experiment it is then clear that the potential for further
-   development not only depends on previous relationships found but also on
-   connections made during exploitation of this novel new experimental
-   protocol.
+   Automated segmentation of cilia from high-speed digital videos is bloody hard.
+   The easiest situation entails a fixed camera recording live cilia in a profile 
+   view (i.e., beating within the plane of the field of view) unobstructed by 
+   floating debris or other cells, beating with rhythmic motions consisting of 
+   forward power and backward recovery strokes. Even under these ideal conditions,
+   other confounders in the field of view can mimic signals that traditional 
+   object segmentation strategies look for. More often than not, these data are
+   less than ideal, depicting immotile cilia, occluding cells, or a shaky camera. 
+   Our own lab has, over the past decade, explored multiple image segmentation 
+   stratgies for identifying respiratory cilia, with mixed results. Here, we
+   ask the question: what if we trained an object segmentation model on the
+   idealized data? Would that, against all intuition, improve the model's overall
+   performance to specifically exclude the messier data from the training process?
 
 .. class:: keywords
 
