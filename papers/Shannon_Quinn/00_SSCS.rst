@@ -1,27 +1,18 @@
-:author: Gaius Caesar
-:email: jj@rome.it
-:institution: Senate House, S.P.Q.R.
-:institution: Egyptian Embassy, S.P.Q.R.
+:author: Shannon Quinn
+:email: spq@uga.edu
+:institution: School of Computer Science, University of Georgia
+:institution: Department of Cellular Biology, University of Georgia
 
-:author: Mark Anthony
-:email: mark37@rome.it
-:institution: Egyptian Embassy, S.P.Q.R.
+:author: Meekail Zain
+:email: Meekail.Zain@uga.edu
+:institution: School of Computer Science, University of Georgia
 
-:author: Jarrod Millman
-:email: millman@rome.it
-:institution: Egyptian Embassy, S.P.Q.R.
-:institution: Yet another place, S.P.Q.R.
-
-:author: Brutus
-:email: brutus@rome.it
-:institution: Unaffiliated
 :bibliography: mybib
-
 
 :video: https://www.youtube.com/watch?v=HHFuTpVvRCI
 
 ------------------------------------------------
-A Numerical Perspective to Terraforming a Desert
+Self-Supervised Cilia Segmentation
 ------------------------------------------------
 
 .. class:: abstract
@@ -38,7 +29,7 @@ A Numerical Perspective to Terraforming a Desert
 
 .. class:: keywords
 
-   terraforming, desert, numerical perspective
+   image processing, respiratory cilia, segmentation, classification
 
 Introduction
 ------------
