@@ -56,6 +56,65 @@ nulla. Donec faucibus purus leo. Nullam vel lorem eget enim blandit ultrices.
 Ut urna lacus, scelerisque nec pellentesque quis, laoreet eu magna. Quisque ac
 justo vitae odio tincidunt tempus at vitae tortor.
 
+Background
+----------
+
+There have been a few published attempts at solving the problem of automated
+segmentation of respiratory cilia. Most of these attempts have come from our 
+lab, dating back nearly a decade.
+
+The earliest attempts used rule-based thresholds :cite:`quinn2014distributed,quinn2015automated`.
+These thresholds were applied to the time-series grayscale pixel values, sometimes
+as simple as computing the standard deviation of the grayscale pixel variation,
+multiplying this value by a constant, and thresholding out any pixels whose 
+standard deviation fell below this threshold. While performant and with
+a surprisingly high true positive rate, this method would lead to patchy segments
+many false positives. Post-processing to smooth the selected regions and 
+remove spurious ones would improve the false positive rates, and combining this
+procedure with a texture filter would also improve results :cite:`quinn2014distributed`.
+However, thresholds based on pixel variations over time could not detect immotile
+cilia, and texture filter augmentations false positive rates that were far too 
+high to be useful without accompanying temporal pixel variations.
+
+Deep learning provided an attractive alternative, and an early paper demonstrated
+the viability of the method :cite:`lu2017classification`, albeit with constraints
+that precluded any real-world applicability. Improvements in deep representation
+methods led to architectures that could extract useful features for segmentation
+:cite:`zain2020towards,zain2022low`, though these approaches suffered from a lack
+of sufficient ground-truth data. As with most supervised problems in deep learning,
+a substantial amount of labeled data is required; in this case, annotating video
+data by hand is not only tedious and error-prone, but this particular data benefits
+from expert assessment and is not readily amenable to being "farmed out" to 
+anyone. In this case, the availability of high-quality ground-truth data proved
+to be the bottleneck.
+
+Alternative approaches that relied less on ground-truth data led to representing
+images as multidimensional Fourier series :cite:`xu2019cilia`. Unfortunately, 
+this approach only worked in tightly-focused images; most images of cilia capture
+multiple cells, each with multiple ciliated edges. With so many different spatial
+frequencies present, this strategy ultimately reverted to a form of thresholding.
+
+Other attempts at automated cilia segmentation have been similarly stymied, or
+operate in a domain that is distinct enough to be of little utility in our case.
+For instance, approaches that operate only on ultrasound :cite:`minhaz2022deep`
+or optical coherence tomography :cite:`cabeza2022automated`, while sometimes
+useful at a conceptual level, do not work in our domain of high-speed digital 
+differential interference contrast (DIC) video. CiliaQ :cite:`hansen2021ciliaq` 
+is a very exciting open source plugin for ImageJ that can not only segment 
+cilia but also compute many useful physiological features such as length and 
+"bendiness"; however, it can only be used in a fluorescence microscopy setting.
+Finally, there has been some other work on high-speed digital DIC video analysis
+:cite:`puybareau2016automating` but it is almost universally unreproducible,
+often lacking any accessible data, implementations, or often both.
+
+By far, the biggest impediment to an automated method for cilia segmentation appears
+to be data related: there is a dearth of high-quality, openly available, and
+fully-annotated data for training and validating segmentation models. While we
+are working on the problem of data availability, that is not what we are going to
+address in this (single) paper. Instead, we propose a half-step: a way of leveraging
+the data that is available to automatically build enough masks that are good enough
+for the purposes of training a semantic segmentation model, specifically for 
+high-speed digital DIC video of respiratory cilia.
 
 Bibliographies, citations and block quotes
 ------------------------------------------
